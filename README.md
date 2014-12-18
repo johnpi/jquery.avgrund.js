@@ -101,6 +101,10 @@ Show/hide close button.
 
 If you decided to show close button then you probably want to add close text to it.
 
+##### container - jQuery object, default: $('#container')
+Set the container that gets scaled when the modal is in view.
+NOTE: This is a new option and breaks compatibility with previous versions of the plugin that were using the body element as the container that gets scaled.
+
 ##### closeByEscape - boolean, default: true
 
 Allow users to close popup by clicking ``Esc`` button.
@@ -231,6 +235,9 @@ Check the example here: http://labs.voronianski.com/jquery.avgrund.js/
 Inspired by Hakim's demo: https://github.com/hakimel/avgrund/
 
 ## Changelog
+
+### Update (Dec 18, 2014)
+Merged the long standing Pull Request #41 which has not yet been merged into the upstream repository. This fixes the issues about innapropriate placement of the modal on long pages or when the modal is invoked after the page has been scrolled down.
 
 ### Update (Sep 28, 2013)
 Added AMD and CommonJS styles support.
