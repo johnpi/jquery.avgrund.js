@@ -60,8 +60,8 @@ You're also able to use some of the options that let you customize it as you wis
 
 ```javascript
 $('element').avgrund({
-	width: 380, // max is 640px
-	height: 280, // max is 350px
+	width: null,  // this is now optional (defaults to null) allowing styling of width with CSS (if specified max is still capped to 640px)
+	height: null, // this is now optional (defaults to null) allowing styling of width with CSS (if specified max is still capped to 350px)
 	showClose: false, // switch to 'true' for enabling close button
 	showCloseText: '', // type your text for close button
 	closeByEscape: true, // enables closing popup by 'Esc'..
@@ -84,13 +84,13 @@ More detailed information on every option you can find [here](https://github.com
 
 Here is the list of available avgrund options:
 
-##### width - string | number, default: '380px'
+##### width - string | number, default: null
 
-Set popup width (currently stict to max ``640px``).
+Set popup width (currently stict to max ``640px`` or style the modal dimensions using CSS which allows more flexibility).
 
-##### height - string | number, default: '280px'
+##### height - string | number, default: null
 
-Set popup height (currently strict to max ``350px``).
+Set popup height (currently strict to max ``350px`` or style the modal dimensions using CSS which allows more flexibility).
 
 ##### showClose - boolean, default: false
 
@@ -230,6 +230,9 @@ Check the example here: http://labs.voronianski.com/jquery.avgrund.js/
 Inspired by Hakim's demo: https://github.com/hakimel/avgrund/
 
 ## Changelog
+
+### Update (Dec 19, 2014)
+Made the width and height options optional. Several users complained that the fixed values were too restrictive. They now default to null allowing the styling of the modal dimensions with CSS.
 
 ### Update (Sep 28, 2013)
 Added AMD and CommonJS styles support.
