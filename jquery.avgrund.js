@@ -20,8 +20,8 @@
 }(function ($) {
 	$.fn.avgrund = function (options) {
 		var defaults = {
-			width: 380, // max = 640
-			height: 280, // max = 350
+			width: null,  // optional so that it can be determined purelly in CSS. It was: 380, // max = 640
+			height: null, // optional so that it can be determined purelly in CSS. It was: 280, // max = 350
 			showClose: false,
 			showCloseText: '',
 			closeByEscape: true,
@@ -42,8 +42,8 @@
 		return this.each(function() {
 			var self = $(this),
 				body = $('body'),
-				maxWidth = options.width > 640 ? 640 : options.width,
-				maxHeight = options.height > 350 ? 350 : options.height,
+				maxWidth = options.width?(options.width > 640 ? 640 : options.width):null,
+				maxHeight = options.height?(options.height > 350 ? 350 : options.height):null,
 				template = typeof options.template === 'function' ? options.template(self) : options.template;
 
 			body.addClass('avgrund-ready');
@@ -89,12 +89,14 @@
 				$popin.append(template);
 				body.append($popin);
 
-				$('.avgrund-popin').css({
-					'width': maxWidth + 'px',
-					'height': maxHeight + 'px',
-					'margin-left': '-' + (maxWidth / 2 + 10) + 'px',
-					'margin-top': '-' + (maxHeight / 2 + 10) + 'px'
-				});
+				if (maxWidth && maxHeight) {
+					$('.avgrund-popin').css({
+						'width': maxWidth + 'px',
+						'height': maxHeight + 'px',
+						'margin-left': '-' + (maxWidth / 2 + 10) + 'px',
+						'margin-top': '-' + (maxHeight / 2 + 10) + 'px'
+					});
+				}
 
 				if (options.showClose) {
 					$('.avgrund-popin').append('<a href="#" class="avgrund-close">' + options.showCloseText + '</a>');
