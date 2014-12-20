@@ -20,8 +20,8 @@
 }(function ($) {
 	$.fn.avgrund = function (options) {
 		var defaults = {
-			width: null,  // optional so that it can be determined purelly in CSS. It was: 380, // max = 640
-			height: null, // optional so that it can be determined purelly in CSS. It was: 280, // max = 350
+			width: 380,  // set this to null if you want to specify the modal width  purelly in css (default: 380, hardcoded max = 640)
+			height: 280, // set this to null if you want to specify the modal height purelly in css (default: 280, hardcoded max = 350)
 			showClose: false,
 			showCloseText: '',
 			closeByEscape: true,
