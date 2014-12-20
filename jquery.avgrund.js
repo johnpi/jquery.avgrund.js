@@ -22,6 +22,8 @@
 		var defaults = {
 			width: 380,  // set this to null if you want to specify the modal width  purelly in css (default: 380, hardcoded max = 640)
 			height: 280, // set this to null if you want to specify the modal height purelly in css (default: 280, hardcoded max = 350)
+			maxWidthLimit: true,  // set to false to deactivate cap on the width  value (hardcoded max = 640). Only relevant when a width  is specified.
+			maxHeightLimit: true, // set to false to deactivate cap on the height value (hardcoded max = 350). Only relevant when a height is specified.
 			showClose: false,
 			showCloseText: '',
 			closeByEscape: true,
@@ -42,8 +44,8 @@
 		return this.each(function() {
 			var self = $(this),
 				body = $('body'),
-				maxWidth = options.width?(options.width > 640 ? 640 : options.width):null,
-				maxHeight = options.height?(options.height > 350 ? 350 : options.height):null,
+				maxWidth =  options.width ?(options.maxWidthLimit ?(options.width  > 640 ? 640 : options.width ):options.width ):null,
+				maxHeight = options.height?(options.maxHeightLimit?(options.height > 350 ? 350 : options.height):options.height):null,
 				template = typeof options.template === 'function' ? options.template(self) : options.template;
 
 			body.addClass('avgrund-ready');
