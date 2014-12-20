@@ -60,8 +60,10 @@ You're also able to use some of the options that let you customize it as you wis
 
 ```javascript
 $('element').avgrund({
-	width: null,  // this is now optional (defaults to null) allowing styling of width with CSS (if specified max is still capped to 640px)
-	height: null, // this is now optional (defaults to null) allowing styling of width with CSS (if specified max is still capped to 350px)
+	width: 380,  // set this to null if you want to specify the modal width  purelly in css (default: 380, hardcoded max = 640)
+	height: 280, // set this to null if you want to specify the modal height purelly in css (default: 280, hardcoded max = 350)
+	maxWidthLimit: true,  // set to false to deactivate cap on the width  value (hardcoded max = 640). Only relevant when a width  is specified.
+	maxHeightLimit: true, // set to false to deactivate cap on the height value (hardcoded max = 350). Only relevant when a height is specified.
 	showClose: false, // switch to 'true' for enabling close button
 	showCloseText: '', // type your text for close button
 	closeByEscape: true, // enables closing popup by 'Esc'..
@@ -84,13 +86,21 @@ More detailed information on every option you can find [here](https://github.com
 
 Here is the list of available avgrund options:
 
-##### width - string | number, default: null
+##### width - string | number | null, default: 380
 
-Set popup width (currently stict to max ``640px`` or style the modal dimensions using CSS which allows more flexibility).
+Set popup width. Set it to null to deactivate it and specify width using CSS which allows more flexibility. (when set to a string or number the value is limited to max ``640px``, see bellow for info on how to deactivate the max value limit).
 
-##### height - string | number, default: null
+##### height - string | number | null, default: 280
 
-Set popup height (currently strict to max ``350px`` or style the modal dimensions using CSS which allows more flexibility).
+Set popup height. Set it to null to deactivate it and specify height using CSS which allows more flexibility. (when set to a string or number the value is limited to max ``350px``, see bellow for info on how to deactivate the max value limit).
+
+##### maxWidthLimit - boolean, default: true
+
+Limit the width to a max value of 640px. Set this to false to deactivate this max width limit. This option is used only when the width option value is not null (see above).
+
+##### maxHeightLimit - boolean, default: true
+
+Limit the height to a max value of 350px. Set this to false to deactivate this max height limit. This option is used only when the height option value is not null (see above).
 
 ##### showClose - boolean, default: false
 
@@ -230,6 +240,9 @@ Check the example here: http://labs.voronianski.com/jquery.avgrund.js/
 Inspired by Hakim's demo: https://github.com/hakimel/avgrund/
 
 ## Changelog
+
+### Update (Dec 20, 2014)
+Reverted to the previous default values to preserve backword compatibility but kept the width and height optional. By setting the width and height options to null you deactivate them and you can style the modal dimensions with CSS. Now also made the hardcoded max width and max height values optional. These can be switched off with the new boolean options maxWidthLimit and maxHeightLimit.
 
 ### Update (Dec 19, 2014)
 Made the width and height options optional. Several users complained that the fixed values were too restrictive. They now default to null allowing the styling of the modal dimensions with CSS.

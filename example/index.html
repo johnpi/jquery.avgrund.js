@@ -28,8 +28,10 @@
 
 		<p>Avgrund has several options for you to customize it easily:</p>
 		<pre>$('element').avgrund({
-	width: 380, // max is 640px
-	height: 280, // max is 350px
+	width: 380, // set this to null if you want to specify the modal width  purelly in css (default: 380, hardcoded max = 640px)
+	height: 280, // set this to null if you want to specify the modal height purelly in css (default: 280, hardcoded max = 350px)
+	maxWidthLimit: true,  // set to false to deactivate cap on the width  value (hardcoded max = 640). Only relevant when a width  is specified.
+	maxHeightLimit: true, // set to false to deactivate cap on the height value (hardcoded max = 350). Only relevant when a height is specified.
 	showClose: false, // switch to 'true' for enabling close button
 	showCloseText: '', // type your text for close button
 	closeByEscape: true, // enables closing popup by 'Esc'..
